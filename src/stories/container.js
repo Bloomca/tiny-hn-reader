@@ -6,6 +6,7 @@ export default function renderStoriesContainer(node) {
   node.appendChild(header);
 
   const list = document.createElement("ul");
+  list.classList.add("stories");
   node.appendChild(list);
 
   return list;
