@@ -21,7 +21,8 @@ export function chunkify(arr) {
  */
 export function waitBottomScroll() {
   return new Promise(resolve => {
-    window.addEventListener("scroll", handler);
+    const debouncedHandler = debounce(handler, 100);
+    window.addEventListener("scroll", debouncedHandler);
 
     function handler() {
       const {
@@ -31,9 +32,20 @@ export function waitBottomScroll() {
       } = document.documentElement;
       // we add 30px, so you don't have to scroll to the bottom
       if (clientHeight + scrollTop + 50 >= scrollHeight) {
-        window.removeEventListener("scroll", handler);
+        window.removeEventListener("scroll", debouncedHandler);
         resolve();
       }
     }
   });
+}
+
+export function debounce(fn, time) {
+  let timer;
+  return (...args) => {
+    if (timer) {
+      clearTimeout(timer);
+    }
+
+    timer = setTimeout(fn, time, ...args);
+  };
 }
