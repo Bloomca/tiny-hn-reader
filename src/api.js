@@ -1,3 +1,4 @@
+// Full docs are here: https://github.com/HackerNews/API
 const DOMAIN = "https://hacker-news.firebaseio.com/v0";
 
 // request for latest stories
