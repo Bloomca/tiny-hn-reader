@@ -30,7 +30,7 @@ export function waitBottomScroll() {
         scrollHeight,
         scrollTop
       } = document.documentElement;
-      // we add 30px, so you don't have to scroll to the bottom
+      // we add 50px, so you don't have to scroll to the bottom
       if (clientHeight + scrollTop + 50 >= scrollHeight) {
         window.removeEventListener("scroll", debouncedHandler);
         resolve();

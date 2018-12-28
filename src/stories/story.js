@@ -26,6 +26,18 @@ function renderStory({ story, node }) {
   dateEl.textContent = " " + renderDate(story.time * 1000);
   el.appendChild(dateEl);
 
+  const byText = document.createTextNode(" by ");
+  el.appendChild(byText);
+
+  const authorLink = document.createElement("a");
+  authorLink.setAttribute(
+    "href",
+    `https://news.ycombinator.com/user?id=${story.by}`
+  );
+  authorLink.setAttribute("target", "_blank");
+  authorLink.textContent = story.by;
+  el.appendChild(authorLink);
+
   node.appendChild(el);
 }
 
