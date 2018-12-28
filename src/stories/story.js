@@ -14,7 +14,8 @@ function renderStory({ story, node }) {
   const el = document.createElement("div");
 
   const linkEl = document.createElement("a");
-  linkEl.setAttribute("href", story.url);
+  const url = story.url || `https://news.ycombinator.com/item?id=${story.id}`;
+  linkEl.setAttribute("href", url);
   linkEl.setAttribute("target", "_blank");
   linkEl.classList.add("story-title");
   linkEl.textContent = story.title;
