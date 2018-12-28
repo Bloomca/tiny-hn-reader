@@ -25,13 +25,13 @@ export function waitBottomScroll() {
     window.addEventListener("scroll", debouncedHandler);
 
     function handler() {
-      const {
-        clientHeight,
-        scrollHeight,
-        scrollTop
-      } = document.documentElement;
+      const { clientHeight, scrollHeight } = document.documentElement;
+
+      // we use pageYOffset instead of scrollTop due to Safari
+      // overall, this part is not very well-tested.
+      // I checked latest Chrome, Safari and Firefox
       // we add 50px, so you don't have to scroll to the bottom
-      if (clientHeight + scrollTop + 50 >= scrollHeight) {
+      if (clientHeight + window.pageYOffset + 50 >= scrollHeight) {
         window.removeEventListener("scroll", debouncedHandler);
         resolve();
       }
