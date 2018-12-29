@@ -1,13 +1,17 @@
 export default function renderStoriesContainer(node) {
+  const container = document.createElement("div");
+  container.classList.add("stories-container");
   const header = document.createElement("h1");
   header.textContent = "HN new links:";
-  header.classList.add("title");
+  header.classList.add("stories-title");
 
-  node.appendChild(header);
+  container.appendChild(header);
 
   const list = document.createElement("ul");
   list.classList.add("stories");
-  node.appendChild(list);
+  container.appendChild(list);
+
+  node.appendChild(container);
 
   return list;
 }

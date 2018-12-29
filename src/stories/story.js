@@ -21,14 +21,14 @@ function renderStory({ story, node }) {
   linkEl.textContent = story.title;
   el.appendChild(linkEl);
 
-  const dateEl = document.createElement("span");
-  dateEl.classList.add("story-date");
+  const infoEl = document.createElement("span");
+  infoEl.classList.add("story-info");
   // HN uses seconds rather than ms
-  dateEl.textContent = " " + renderDate(story.time * 1000);
-  el.appendChild(dateEl);
+  const dateNode = document.createTextNode(" " + renderDate(story.time * 1000));
+  infoEl.appendChild(dateNode);
 
   const byText = document.createTextNode(" by ");
-  el.appendChild(byText);
+  infoEl.appendChild(byText);
 
   const authorLink = document.createElement("a");
   authorLink.setAttribute(
@@ -36,8 +36,10 @@ function renderStory({ story, node }) {
     `https://news.ycombinator.com/user?id=${story.by}`
   );
   authorLink.setAttribute("target", "_blank");
+  authorLink.classList.add("story-author");
   authorLink.textContent = story.by;
-  el.appendChild(authorLink);
+  infoEl.appendChild(authorLink);
+  el.appendChild(infoEl);
 
   node.appendChild(el);
 }
@@ -66,7 +68,6 @@ function renderDate(time) {
 
   const day = date.getDate();
   const month = MONTHS[date.getMonth()];
-  // const year = date.getFullYear();
 
   const hour = date.getHours();
   const minutes = date.getMinutes();

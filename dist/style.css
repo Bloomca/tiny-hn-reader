@@ -3,6 +3,16 @@ body {
   margin: 0;
 }
 
+.stories-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.stories-title {
+  text-align: center;
+}
+
 .stories li {
   margin-bottom: 5px;
 }
@@ -16,7 +26,17 @@ body {
   text-decoration: underline;
 }
 
-.story-date {
+.story-info {
   color: #bbb;
   font-size: 0.9em;
 }
+
+.story-author {
+  text-decoration: none;
+  color: #000;
+}
+
+.story-author:hover {
+  text-decoration: underline;
+}
+
