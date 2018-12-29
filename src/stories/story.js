@@ -10,21 +10,23 @@ function renderListItem(node) {
   return listElement;
 }
 
-function renderStory({ story, node }) {
+export function renderStory({ story, node }) {
   const el = document.createElement("div");
 
   const linkEl = document.createElement("a");
   const url = story.url || `https://news.ycombinator.com/item?id=${story.id}`;
+
   linkEl.setAttribute("href", url);
   linkEl.setAttribute("target", "_blank");
   linkEl.classList.add("story-title");
   linkEl.textContent = story.title;
+
   el.appendChild(linkEl);
 
   const infoEl = document.createElement("span");
   infoEl.classList.add("story-info");
   // HN uses seconds rather than ms
-  const dateNode = document.createTextNode(" " + renderDate(story.time * 1000));
+  const dateNode = document.createTextNode(" " + formatDate(story.time * 1000));
   infoEl.appendChild(dateNode);
 
   const byText = document.createTextNode(" by ");
@@ -38,7 +40,9 @@ function renderStory({ story, node }) {
   authorLink.setAttribute("target", "_blank");
   authorLink.classList.add("story-author");
   authorLink.textContent = story.by;
+
   infoEl.appendChild(authorLink);
+
   el.appendChild(infoEl);
 
   node.appendChild(el);
@@ -59,7 +63,7 @@ const MONTHS = {
   11: "Dec"
 };
 
-function renderDate(time) {
+function formatDate(time) {
   const date = new Date(time);
 
   if (Number.isNaN(Number(date))) {
