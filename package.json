@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack & serve dist",
     "build": "NODE_ENV=production webpack",
-    "test": "jest"
+    "test": "eslint src && jest"
   },
   "repository": {
     "type": "git",
