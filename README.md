@@ -9,7 +9,10 @@ This is a small application to display latest HN stories. It uses [HackerNews AP
 
 ## Run
 
+I used Node@11.0 during development, however, I think any 8+ should work.
+
 ```sh
+npm install
 npm start # will serve locally (will watch automatically)
 npm build # will build a production bundle
 npm test
