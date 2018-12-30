@@ -1,7 +1,15 @@
 import { chunkify, waitBottomScroll } from "../utils";
 import renderStory from "./story";
+import renderError from "./error";
 
 export default async function renderStories({ stories, node, fetchStory }) {
+  if (!stories) {
+    // this is not semantic, and I believe it is invalid HTML, since node
+    // is `ul`. TODO: render `ul` in this function.
+    renderError(node);
+    return;
+  }
+
   const { getNextChunk, isFinished } = chunkify(stories);
 
   // TODO make this number depending on the screen size;

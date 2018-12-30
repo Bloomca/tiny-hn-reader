@@ -1,6 +1,10 @@
 export default function render({ story, node }) {
-  const listElement = renderListItem(node);
-  renderStory({ story, node: listElement });
+  // we just ignore if story was not loaded for some reason
+  // it won't render anything and user won't notice any hiccups
+  if (story) {
+    const listElement = renderListItem(node);
+    renderStory({ story, node: listElement });
+  }
 }
 
 function renderListItem(node) {

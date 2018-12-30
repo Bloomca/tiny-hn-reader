@@ -18,5 +18,12 @@ export function getStory(id) {
 // implemented.
 // in fact, we don't even expose this function, all API is within this file
 function get(url) {
-  return fetch(`${DOMAIN}${url}`).then(response => response.json());
+  return fetch(`${DOMAIN}${url}`).then(
+    response => response.json(),
+    () => {
+      // we swallow it, assuming that later code will react to falsy values
+      // ideally, we should pass our own error instance so later we can
+      // match against it
+    }
+  );
 }

@@ -9,6 +9,10 @@ body {
   padding: 0 10px;
 }
 
+.stories-error {
+  text-align: center;
+}
+
 .stories-title {
   text-align: center;
 }
