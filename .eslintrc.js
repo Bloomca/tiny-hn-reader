@@ -1,6 +1,7 @@
 module.exports = {
   env: {
     browser: true,
+    node: true,
     es6: true
   },
   extends: "eslint:recommended",
@@ -13,7 +14,6 @@ module.exports = {
     "array-bracket-newline": "error",
     "array-bracket-spacing": "error",
     "array-callback-return": "error",
-    "array-element-newline": "error",
     "arrow-body-style": "off",
     "arrow-parens": ["error", "as-needed"],
     "arrow-spacing": [
@@ -45,7 +45,7 @@ module.exports = {
     "consistent-this": "error",
     curly: "error",
     "default-case": "error",
-    "dot-location": "error",
+    "dot-location": 0,
     "dot-notation": "error",
     "eol-last": "error",
     eqeqeq: "error",
@@ -102,6 +102,7 @@ module.exports = {
     "no-caller": "error",
     "no-catch-shadow": "error",
     "no-confusing-arrow": "error",
+    "no-console": 1,
     "no-continue": "error",
     "no-div-regex": "error",
     "no-duplicate-imports": "error",
@@ -146,7 +147,7 @@ module.exports = {
     "no-param-reassign": "error",
     "no-path-concat": "error",
     "no-plusplus": "error",
-    "no-process-env": "error",
+    "no-process-env": 0,
     "no-process-exit": "error",
     "no-proto": "error",
     "no-prototype-builtins": "error",
