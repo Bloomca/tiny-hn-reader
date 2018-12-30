@@ -1,3 +1,4 @@
+// render error message if we could not get stories
 export default function render(node) {
   const el = document.createElement("div");
   el.classList.add("stories-error");

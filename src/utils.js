@@ -39,6 +39,8 @@ export function waitBottomScroll() {
   });
 }
 
+// This could be gotten from _.debounce, but to keep number of dependencies 0
+// it was written manually. No real reason otherwise, should be replaced.
 export function debounce(fn, time) {
   let timer;
   return (...args) => {

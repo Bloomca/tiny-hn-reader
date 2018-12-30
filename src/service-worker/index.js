@@ -8,10 +8,16 @@ self.addEventListener("install", event => {
   );
 });
 
+// we don't activate, since it is the first and the latest version of this
+// service worker. In case of changes, we will need to delete caches first.
+
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.open(CACHE_NAME).then(cache => {
       return cache.match(event.request).then(cacheResponse => {
+        // we always fetch, even if we have the response in our cache
+        // the reason is that we don't want to invalidate cache manually,
+        // and use it _only_ as a fallback, writing the latest value.
         return fetch(event.request)
           .then(response => {
             cache.put(event.request, response.clone());

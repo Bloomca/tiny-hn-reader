@@ -1,3 +1,11 @@
+/**
+ * @description Render widget, which shows your connection status
+ * It shows when you are offline, and online when you are back,
+ * with a link to refresh page to get latest data
+ *
+ * @param {Node} node – DOM node to append our widget
+ * @returns {void}
+ */
 export default function render(node) {
   const container = document.createElement("div");
   container.classList.add("connection-container");
@@ -16,6 +24,8 @@ export default function render(node) {
       window.removeEventListener("offline", handler);
       // we need to add container to DOM
       // we also need to insert it in the beginning
+      // TODO: better to just pass independent node to render
+      // so we just append container without knowing its position
       node.insertBefore(container, node.firstChild);
       markOffline();
     };

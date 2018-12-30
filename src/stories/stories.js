@@ -2,6 +2,8 @@ import { chunkify, waitBottomScroll } from "../utils";
 import renderStory from "./story";
 import renderError from "./error";
 
+// TODO: extract all magical numbers
+
 export default async function renderStories({ stories, node, fetchStory }) {
   if (!stories) {
     // this is not semantic, and I believe it is invalid HTML, since node
@@ -16,6 +18,8 @@ export default async function renderStories({ stories, node, fetchStory }) {
   // we just need to render ~1.5 screens.
   let itemsToRender = 80;
 
+  // this is almost an infinite loop, but we actually wait in
+  // the function, waiting for the scroll
   while (await shouldRenderMore()) {
     // let's always render in a way so we stop at 0
     // it is not really necessary, but just to have even

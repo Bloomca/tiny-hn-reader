@@ -67,6 +67,7 @@ const MONTHS = {
   11: "Dec"
 };
 
+// formats time like "03:45 27 Dec"
 function formatDate(time) {
   const date = new Date(time);
 
