@@ -44,3 +44,27 @@ body {
   text-decoration: underline;
 }
 
+.connection-container {
+  border: 0 solid #dae1e7;
+  border-radius: 10px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #fff;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.connection-container.warning {
+  background-color: #e3342f;
+}
+
+.connection-container a {
+  color: #fff;
+}
+
+.connection-container.info {
+  background-color: #3490dc;
+}
+
